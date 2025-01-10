@@ -48,7 +48,7 @@ function main() {
 }
 
 function draw() {
-    ctx.clearRect(0,0,200,20) // not working???
+    ctx.clearRect(-canvasWidth/2,-canvasHeight/2,canvasWidth,canvasHeight);
     drawCube(5,5,1,5,5,0.5);
 }
 
