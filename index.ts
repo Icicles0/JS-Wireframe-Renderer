@@ -14,6 +14,8 @@ var forward: boolean = false;
 var backward: boolean = false;
 var left: boolean = false;
 var right: boolean = false;
+var up: boolean = false;
+var down: boolean = false;
 
 function start() {
     const canvaslist:any = document.getElementsByClassName("canv");
@@ -31,7 +33,7 @@ function start() {
     ctx.translate(canvas.width/2,canvas.height/2); // make center of canvas 0,0
 
 
-    setInterval(main, 33);
+    setInterval(main, 33); // lock at 30 fps
 }
 
 function main() {
@@ -40,7 +42,7 @@ function main() {
 }
 
 function draw() {
-    ctx.rect(-1000,-1000,5000,5000) // not working???
+    ctx.clearRect(0,0,200,20) // not working???
     drawCube(5,5,1,5,5,0.5);
 }
 
@@ -52,10 +54,16 @@ function input() {
         camZ -= 0.1;
     }
     if (left) {
-        camX -= 0.2;
+        camX -= 0.4;
     }
     if (right) {
-        camX += 0.2;
+        camX += 0.4;
+    }
+    if (up) {
+        camY -= 0.4;
+    }
+    if (down) {
+        camY += 0.4;
     }
 }
 
@@ -73,6 +81,12 @@ function keydown(event:any) {
     if (code == "KeyD") {
         right = true;
     }
+    if (code == "ShiftLeft") {
+        up = true;
+    }
+    if (code == "ControlLeft") {
+        down = true;
+    }
 }
 
 function keyup(event:any) {
@@ -88,6 +102,12 @@ function keyup(event:any) {
     }
     if (code == "KeyD") {
         right = false;
+    }
+    if (code == "ShiftLeft") {
+        up = false;
+    }
+    if (code == "ControlLeft") {
+        down = false;
     }
 }
 
