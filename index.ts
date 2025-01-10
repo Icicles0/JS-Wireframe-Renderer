@@ -47,9 +47,16 @@ function main() {
     input();
 }
 
+
+
 function draw() {
-    ctx.clearRect(-canvasWidth/2,-canvasHeight/2,canvasWidth,canvasHeight);
+
+    ctx.beginPath()
+    ctx.clearRect(-canvasWidth / 2, -canvasHeight / 2, canvasWidth, canvasHeight);
+
     drawCube(5,5,1,5,5,0.5);
+
+    ctx.stroke();
 }
 
 function input() {
@@ -171,7 +178,4 @@ function drawCube(x:number, y:number, z:number, width:number, height:number, dep
     lineTo3d(x+width,y+height,z+depth);
     lineTo3d(x,y+height,z+depth);
     lineTo3d(x,y,z+depth);
-    ctx?.stroke();
-
-
 }
