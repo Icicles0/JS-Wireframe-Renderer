@@ -1,3 +1,6 @@
+const canvasWidth = 500;
+const canvasHeight = 500;
+
 var camX: number = 12;
 var camY: number = 0;
 var camZ: number = 0;
@@ -25,6 +28,9 @@ function start() {
 
     console.log(canvaslist);
     console.log(canvas);
+
+    canvas.height = canvasHeight;
+    canvas.width = canvasWidth;
 
 
 
